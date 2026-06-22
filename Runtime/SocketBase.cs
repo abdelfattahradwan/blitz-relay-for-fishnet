@@ -34,6 +34,11 @@ namespace BlitzRelay
 		protected string RoomCode;
 
 		/// <summary>
+		/// The timeout duration, in milliseconds, for disconnecting idle connections. <see cref="LiteNetManager.DisconnectTimeout"/>
+		/// </summary>
+		protected int DisconnectTimeoutMilliseconds = 5000;
+
+		/// <summary>
 		/// MTU size per packet.
 		/// </summary>
 		protected int Mtu;
@@ -93,16 +98,13 @@ namespace BlitzRelay
 		}
 
 		/// <summary>
-		/// Updates the LiteNetLib disconnect timeout. A value of 0 uses the maximum
-		/// possible timeout.
+		/// Updates the LiteNetLib disconnect timeout. A value less than or equal to 0 uses the maximum possible timeout.
 		/// </summary>
-		internal void UpdateTimeout(int timeout)
+		internal void UpdateTimeout(int timeoutMilliseconds)
 		{
-			if (SocketNetManager == null) return;
+			DisconnectTimeoutMilliseconds = timeoutMilliseconds <= 0 ? int.MaxValue : timeoutMilliseconds;
 
-			timeout = timeout == 0 ? int.MaxValue : Math.Min(timeout * 1000, int.MaxValue);
-
-			SocketNetManager.DisconnectTimeout = timeout;
+			if (SocketNetManager != null) SocketNetManager.DisconnectTimeout = DisconnectTimeoutMilliseconds;
 		}
 
 		/// <summary>
