@@ -83,7 +83,7 @@ namespace BlitzRelay
 		/// <param name="length">The number of valid bytes in <paramref name="data"/>.</param>
 		/// <param name="channelId">The channel associated with this packet.</param>
 		/// <returns>A packet backed by <paramref name="data"/>.</returns>
-		public static DataPacket TakeRentedBuffer(int connectionId, byte[] data, int length, byte channelId)
+		internal static DataPacket TakeRentedBuffer(int connectionId, byte[] data, int length, byte channelId)
 		{
 			return new DataPacket(connectionId, true, data, length, channelId);
 		}
