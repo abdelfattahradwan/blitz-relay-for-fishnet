@@ -56,13 +56,13 @@ namespace BlitzRelay
 		/// Creates a pooled packet by renting an array from the shared pool and copying
 		/// the span into it.
 		/// </summary>
-		public DataPacket(int connectionId, Span<byte> span, byte channelId, int mtu)
+		public DataPacket(int connectionId, Span<byte> span, byte channelId)
 		{
 			ConnectionId = connectionId;
 
 			_isPooled = true;
 
-			_data = ArrayPool<byte>.Shared.Rent(Math.Max(span.Length, mtu));
+			_data = ArrayPool<byte>.Shared.Rent(span.Length);
 
 			span.CopyTo(_data);
 

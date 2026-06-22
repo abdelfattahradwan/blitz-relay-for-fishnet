@@ -163,7 +163,7 @@ namespace BlitzRelay
 		{
 			if (SocketConnectionState != LocalConnectionState.Started) return;
 
-			DataPacket outgoingDataPacket = new(connectionId, segment, channelId, mtu);
+			DataPacket outgoingDataPacket = new(connectionId, segment, channelId);
 
 			queue.Enqueue(outgoingDataPacket);
 		}
