@@ -265,7 +265,7 @@ namespace BlitzRelay
 
 					ArrayPool<byte>.Shared.Return(rawData);
 
-					IncomingPackets.Enqueue(new DataPacket(0, payloadData, payloadLength, gameChannel));
+					IncomingPackets.Enqueue(DataPacket.TakeRentedBuffer(0, payloadData, payloadLength, gameChannel));
 
 					break;
 				}
