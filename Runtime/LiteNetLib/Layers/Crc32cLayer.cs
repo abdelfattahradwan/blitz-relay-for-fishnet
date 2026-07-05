@@ -1,8 +1,8 @@
-﻿using BlitzRelay.LiteNetLib.Utils;
+﻿using BlitzRelay.FishNet.LiteNetLib.Utils;
 using System;
 using System.Net;
 
-namespace BlitzRelay.LiteNetLib.Layers
+namespace BlitzRelay.FishNet.LiteNetLib.Layers
 {
 	public sealed class Crc32cLayer : PacketLayerBase
 	{

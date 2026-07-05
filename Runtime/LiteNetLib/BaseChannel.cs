@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 
-namespace BlitzRelay.LiteNetLib
+namespace BlitzRelay.FishNet.LiteNetLib
 {
 	/// <summary>
 	/// Base class for reliable and sequenced communication channels. <br/>
@@ -55,7 +55,7 @@ namespace BlitzRelay.LiteNetLib
 		}
 
 		/// <summary>
-		/// Attempts to send packets from the queue. If the queue becomes empty or throttled, 
+		/// Attempts to send packets from the queue. If the queue becomes empty or throttled,
 		/// it resets the update flag.
 		/// </summary>
 		/// <returns><see langword="true"/> if there are still packets remaining to be sent in future updates.</returns>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BlitzRelay.LiteNetLib.Utils
+namespace BlitzRelay.FishNet.LiteNetLib.Utils
 {
 	public class NetPacketProcessor
 	{

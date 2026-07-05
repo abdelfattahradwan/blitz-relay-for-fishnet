@@ -1,4 +1,4 @@
-﻿namespace BlitzRelay.LiteNetLib
+﻿namespace BlitzRelay.FishNet.LiteNetLib
 {
 	/// <summary>
 	/// Sending method type

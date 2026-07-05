@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Net;
-using BlitzRelay.LiteNetLib.Utils;
+using BlitzRelay.FishNet.LiteNetLib.Utils;
 
-namespace BlitzRelay.LiteNetLib
+namespace BlitzRelay.FishNet.LiteNetLib
 {
 	public sealed class NetConnectRequestPacket
 	{

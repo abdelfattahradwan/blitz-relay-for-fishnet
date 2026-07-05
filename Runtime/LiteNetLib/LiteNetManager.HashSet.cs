@@ -2,7 +2,7 @@
 using System.Net;
 using System.Threading;
 
-namespace BlitzRelay.LiteNetLib
+namespace BlitzRelay.FishNet.LiteNetLib
 {
 	//minimal hashset class from dotnet with some optimizations
 	public partial class LiteNetManager

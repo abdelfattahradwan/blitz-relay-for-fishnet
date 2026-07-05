@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Runtime.Serialization;
 
-namespace BlitzRelay.LiteNetLib.Utils
+namespace BlitzRelay.FishNet.LiteNetLib.Utils
 {
 	public class InvalidTypeException : ArgumentException
 	{

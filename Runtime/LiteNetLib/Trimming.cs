@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using static System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes;
 
-namespace BlitzRelay.LiteNetLib
+namespace BlitzRelay.FishNet.LiteNetLib
 {
     internal static class Trimming
     {

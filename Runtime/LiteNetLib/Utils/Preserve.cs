@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BlitzRelay.LiteNetLib.Utils
+namespace BlitzRelay.FishNet.LiteNetLib.Utils
 {
 	/// <summary>
 	/// PreserveAttribute prevents byte code stripping from removing a class, method, field, or property.

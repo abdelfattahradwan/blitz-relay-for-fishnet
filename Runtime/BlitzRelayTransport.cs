@@ -1,13 +1,13 @@
-﻿using FishNet.Managing;
+﻿using BlitzRelay.FishNet.LiteNetLib;
+using BlitzRelay.FishNet.LiteNetLib.Layers;
+using BlitzRelay.Protocol;
+using FishNet.Managing;
 using FishNet.Managing.Transporting;
 using FishNet.Transporting;
-using BlitzRelay.LiteNetLib;
-using BlitzRelay.LiteNetLib.Layers;
-using BlitzRelay.Protocol;
 using System;
 using UnityEngine;
 
-namespace BlitzRelay
+namespace BlitzRelay.FishNet
 {
 	public sealed class BlitzRelayTransport : Transport
 	{

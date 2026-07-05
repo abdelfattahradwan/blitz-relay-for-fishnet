@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace BlitzRelay.LiteNetLib
+namespace BlitzRelay.FishNet.LiteNetLib
 {
 	internal static class NativeSocket
 	{

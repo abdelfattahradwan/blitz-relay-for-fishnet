@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace BlitzRelay.LiteNetLib
+namespace BlitzRelay.FishNet.LiteNetLib
 {
 	/// <summary>
 	/// Thread-safe counter for network statistics including sent/received packets, bytes, and packet loss.
@@ -39,7 +39,7 @@ namespace BlitzRelay.LiteNetLib
 		public long PacketLoss => Interlocked.Read(ref _packetLoss);
 
 		/// <summary>
-		/// Percentage of sent packets that were lost. 
+		/// Percentage of sent packets that were lost.
 		/// Calculated as (PacketLoss * 100) / PacketsSent.
 		/// </summary>
 		public long PacketLossPercent

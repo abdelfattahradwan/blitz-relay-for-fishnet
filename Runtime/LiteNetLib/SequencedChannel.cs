@@ -1,6 +1,6 @@
 using System;
 
-namespace BlitzRelay.LiteNetLib
+namespace BlitzRelay.FishNet.LiteNetLib
 {
 	internal sealed class SequencedChannel : BaseChannel
 	{

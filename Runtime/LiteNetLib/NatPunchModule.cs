@@ -1,9 +1,9 @@
 ﻿using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Sockets;
-using BlitzRelay.LiteNetLib.Utils;
+using BlitzRelay.FishNet.LiteNetLib.Utils;
 
-namespace BlitzRelay.LiteNetLib
+namespace BlitzRelay.FishNet.LiteNetLib
 {
 	/// <summary>
 	/// Specifies the type of network address discovered during NAT punchthrough.

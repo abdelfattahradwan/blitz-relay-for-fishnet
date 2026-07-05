@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace BlitzRelay.LiteNetLib.Layers
+namespace BlitzRelay.FishNet.LiteNetLib.Layers
 {
 	public abstract class PacketLayerBase
 	{

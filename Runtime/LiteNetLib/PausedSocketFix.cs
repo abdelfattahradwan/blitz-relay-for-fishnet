@@ -2,7 +2,7 @@
 using System.Net;
 using UnityEngine;
 
-namespace BlitzRelay.LiteNetLib
+namespace BlitzRelay.FishNet.LiteNetLib
 {
 	public class PausedSocketFix
 	{

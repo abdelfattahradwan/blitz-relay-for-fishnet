@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Net.NetworkInformation;
 
-namespace BlitzRelay.LiteNetLib
+namespace BlitzRelay.FishNet.LiteNetLib
 {
 	/// <summary>
 	/// Address type that you want to receive from NetUtils.GetLocalIp method
@@ -37,7 +37,7 @@ namespace BlitzRelay.LiteNetLib
 		/// Resolves a host string into an <see cref="IPAddress"/>.
 		/// </summary>
 		/// <remarks>
-		/// This method handles "localhost" specifically, attempts to parse the string as a direct IP, 
+		/// This method handles "localhost" specifically, attempts to parse the string as a direct IP,
 		/// and falls back to DNS resolution. It prioritizes IPv6 if <see cref="LiteNetManager.IPv6Support"/> is enabled.
 		/// </remarks>
 		/// <param name="hostStr">The host name or IP address string (e.g., "127.0.0.1", "localhost", or "google.com").</param>

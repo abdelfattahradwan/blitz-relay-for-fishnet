@@ -1,4 +1,4 @@
-﻿namespace BlitzRelay.LiteNetLib.Utils
+﻿namespace BlitzRelay.FishNet.LiteNetLib.Utils
 {
 	/// <summary>
 	/// Interface for implementing custom data serialization for network transmission.

@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
 
-namespace BlitzRelay.LiteNetLib.Utils
+namespace BlitzRelay.FishNet.LiteNetLib.Utils
 {
 	/// <summary>
 	/// Represents an active NTP (Network Time Protocol) query to a remote time server.
@@ -39,7 +39,7 @@ namespace BlitzRelay.LiteNetLib.Utils
 		/// Attempts to send an NTP query packet to the remote endpoint.
 		/// </summary>
 		/// <remarks>
-		/// The packet is only sent if the internal retransmission timer has elapsed. 
+		/// The packet is only sent if the internal retransmission timer has elapsed.
 		/// Updates internal timers for both retransmission and total lifetime.
 		/// </remarks>
 		/// <param name="socket">The underlying socket used to send the datagram.</param>

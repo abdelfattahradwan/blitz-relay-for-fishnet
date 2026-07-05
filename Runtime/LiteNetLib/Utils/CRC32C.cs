@@ -7,7 +7,7 @@ using System.Runtime.Intrinsics.X86;
 using System.Runtime.Intrinsics.Arm;
 #endif
 
-namespace BlitzRelay.LiteNetLib.Utils
+namespace BlitzRelay.FishNet.LiteNetLib.Utils
 {
 	//Implementation from Crc32.NET
 	public static class CRC32C

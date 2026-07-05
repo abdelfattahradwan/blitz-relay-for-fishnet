@@ -1,5 +1,6 @@
-using BlitzRelay.LiteNetLib;
-using BlitzRelay.LiteNetLib.Layers;
+using BlitzRelay.FishNet;
+using BlitzRelay.FishNet.LiteNetLib;
+using BlitzRelay.FishNet.LiteNetLib.Layers;
 using FishNet.Transporting;
 using System;
 using System.Collections.Concurrent;

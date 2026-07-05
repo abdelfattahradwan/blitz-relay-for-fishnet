@@ -9,10 +9,10 @@ using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-using BlitzRelay.LiteNetLib.Layers;
-using BlitzRelay.LiteNetLib.Utils;
+using BlitzRelay.FishNet.LiteNetLib.Layers;
+using BlitzRelay.FishNet.LiteNetLib.Utils;
 
-namespace BlitzRelay.LiteNetLib
+namespace BlitzRelay.FishNet.LiteNetLib
 {
 	/// <summary>
 	/// Main class for all network operations. Can be used as client and/or server.

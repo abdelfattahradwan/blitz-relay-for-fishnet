@@ -1,4 +1,4 @@
-using BlitzRelay.LiteNetLib;
+using BlitzRelay.FishNet.LiteNetLib;
 using BlitzRelay.Protocol;
 using FishNet.Managing;
 using FishNet.Transporting;

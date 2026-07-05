@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BlitzRelay.LiteNetLib.Utils
+namespace BlitzRelay.FishNet.LiteNetLib.Utils
 {
 	/// <summary>
 	/// Represents RFC4330 SNTP packet used for communication to and from a network time server.

@@ -1,8 +1,8 @@
 ﻿using System.Net;
 using System.Net.Sockets;
-using BlitzRelay.LiteNetLib.Utils;
+using BlitzRelay.FishNet.LiteNetLib.Utils;
 
-namespace BlitzRelay.LiteNetLib
+namespace BlitzRelay.FishNet.LiteNetLib
 {
 	/// <summary>
 	/// Type of message that you receive in OnNetworkReceiveUnconnected event

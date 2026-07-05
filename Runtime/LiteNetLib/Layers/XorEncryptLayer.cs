@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text;
 
-namespace BlitzRelay.LiteNetLib.Layers
+namespace BlitzRelay.FishNet.LiteNetLib.Layers
 {
 	public class XorEncryptLayer : PacketLayerBase
 	{
