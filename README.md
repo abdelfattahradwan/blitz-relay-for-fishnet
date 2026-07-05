@@ -18,13 +18,13 @@ connections to the relay.
 Open the Unity Package Manager (Window > Package Manager) and add the package via git URL:
 
 ```
-https://github.com/WinterboltGames/Fishy-Blitz-Relay.git?path=/Packages/com.winterboltgames.blitzrelay
+https://github.com/abdelfattahradwan/fishyblitzrelay.git?path=/Packages/com.winterboltgames.blitzrelay
 ```
 
 Or add the following entry to your project's `Packages/manifest.json`:
 
 ```json
-"com.winterboltgames.fishyblitzrelay": "https://github.com/WinterboltGames/Fishy-Blitz-Relay.git?path=/Packages/com.winterboltgames.blitzrelay"
+"com.winterboltgames.fishyblitzrelay": "https://github.com/abdelfattahradwan/fishyblitzrelay.git?path=/Packages/com.winterboltgames.blitzrelay"
 ```
 
 ## Features
