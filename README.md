@@ -1,9 +1,9 @@
 # Blitz Relay for Fish-Networking
 
-A relay transport for [Fish-Networking](https://fish-networking.fishnet.dev/). Blitz Relay for Fish-Networking routes
+A relay transport for [Fish-Networking](https://fish-networking.fishnet.dev/) that routes
 all client traffic through a [Blitz Relay](https://github.com/abdelfattahradwan/blitz-relay) server instance, removing
 the need for clients to have publicly reachable IP addresses or open ports. This makes it suitable for deployments where
-NAT traversal or firewall restrictions prevent direct peer-to-peer connections.
+NAT traversal or firewall restrictions make direct peer-to-peer connections unreliable or impractical.
 
 The transport uses a modified build of [LiteNetLib](https://github.com/RevenantX/LiteNetLib) internally for its UDP
 connections to the relay.
