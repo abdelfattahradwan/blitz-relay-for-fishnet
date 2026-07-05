@@ -1,6 +1,6 @@
-# Fishy Blitz Relay
+# Blitz Relay for Fish-Networking
 
-A relay transport for [Fish-Networking](https://fish-networking.fishnet.dev/). Fishy Blitz Relay routes all client
+A relay transport for [Fish-Networking](https://fish-networking.fishnet.dev/). Blitz Relay for Fish-Networking routes all client
 traffic through a [Blitz Relay](https://github.com/abdelfattahradwan/blitz-relay) server instance, removing the need for
 clients to have publicly reachable IP addresses or open ports. This makes it suitable for deployments where NAT
 traversal or firewall restrictions prevent direct peer-to-peer connections.
@@ -18,13 +18,13 @@ connections to the relay.
 Open the Unity Package Manager (Window > Package Manager) and add the package via git URL:
 
 ```
-https://github.com/abdelfattahradwan/fishyblitzrelay.git?path=/Packages/com.winterboltgames.blitzrelay
+https://github.com/abdelfattahradwan/blitz-relay-for-fishnet.git?path=/Packages/com.winterboltgames.blitzrelayforfishnet
 ```
 
 Or add the following entry to your project's `Packages/manifest.json`:
 
 ```json
-"com.winterboltgames.fishyblitzrelay": "https://github.com/abdelfattahradwan/fishyblitzrelay.git?path=/Packages/com.winterboltgames.blitzrelay"
+"com.winterboltgames.blitz-relay-for-fishnet": "https://github.com/abdelfattahradwan/blitz-relay-for-fishnet.git?path=/Packages/com.winterboltgames.blitzrelayforfishnet"
 ```
 
 ## Features
