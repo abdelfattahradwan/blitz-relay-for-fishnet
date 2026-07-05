@@ -61,14 +61,14 @@ fields are exposed in the Inspector:
 
 Several methods are available for script-driven configuration after the transport has been initialised:
 
-- `SetRelayAddress(string)` / `GetRelayAddress()` -- Change or read the relay server address.
-- `SetRelayPort(ushort)` / `GetRelayPort()` -- Change or read the relay server port.
-- `SetRoomCode(string)` / `GetRoomCode()` -- Set or retrieve the current room code.
-- `SetRoomHostToken(string)` / `GetRoomHostToken()` -- Manage the host token assigned by the relay (used internally for
+- `SetRelayAddress(string)` / `GetRelayAddress()` → Change or read the relay server address.
+- `SetRelayPort(ushort)` / `GetRelayPort()` → Change or read the relay server port.
+- `SetRoomCode(string)` / `GetRoomCode()` → Set or retrieve the current room code.
+- `SetRoomHostToken(string)` / `GetRoomHostToken()` → Manage the host token assigned by the relay (used internally for
   room ownership).
-- `SetMaximumClients(int)` / `GetMaximumClients()` -- Adjust or read the client limit.
-- `IsRelayHostAvailable` -- Indicates whether the local player is, or can become, the relay host.
-- `OnRelayHostAvailabilityChanged` -- Event that fires when host availability changes (e.g. after a host migration).
+- `SetMaximumClients(int)` / `GetMaximumClients()` → Adjust or read the client limit.
+- `IsRelayHostAvailable` → Indicates whether the local player is, or can become, the relay host.
+- `OnRelayHostAvailabilityChanged` → Event that fires when host availability changes (e.g. after a host migration).
 
 ## License
 
