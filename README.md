@@ -1,9 +1,9 @@
 # Blitz Relay for Fish-Networking
 
-A relay transport for [Fish-Networking](https://fish-networking.fishnet.dev/). Blitz Relay for Fish-Networking routes all client
-traffic through a [Blitz Relay](https://github.com/abdelfattahradwan/blitz-relay) server instance, removing the need for
-clients to have publicly reachable IP addresses or open ports. This makes it suitable for deployments where NAT
-traversal or firewall restrictions prevent direct peer-to-peer connections.
+A relay transport for [Fish-Networking](https://fish-networking.fishnet.dev/). Blitz Relay for Fish-Networking routes
+all client traffic through a [Blitz Relay](https://github.com/abdelfattahradwan/blitz-relay) server instance, removing
+the need for clients to have publicly reachable IP addresses or open ports. This makes it suitable for deployments where
+NAT traversal or firewall restrictions prevent direct peer-to-peer connections.
 
 The transport uses a modified build of [LiteNetLib](https://github.com/RevenantX/LiteNetLib) internally for its UDP
 connections to the relay.
@@ -59,7 +59,7 @@ fields are exposed in the Inspector:
 
 ### Runtime API
 
-Several methods are available for script-driven configuration after the transport has been initialized:
+Several methods are available for script-driven configuration after the transport has been initialised:
 
 - `SetRelayAddress(string)` / `GetRelayAddress()` -- Change or read the relay server address.
 - `SetRelayPort(ushort)` / `GetRelayPort()` -- Change or read the relay server port.
