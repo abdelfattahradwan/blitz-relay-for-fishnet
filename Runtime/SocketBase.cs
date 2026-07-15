@@ -1,4 +1,3 @@
-using BlitzRelay.FishNet;
 using BlitzRelay.FishNet.LiteNetLib;
 using BlitzRelay.FishNet.LiteNetLib.Layers;
 using FishNet.Transporting;
@@ -6,7 +5,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-namespace BlitzRelay
+namespace BlitzRelay.FishNet
 {
 	/// <summary>
 	/// Abstract base for client and host relay sockets. Handles LiteNetLib NetManager

@@ -1,4 +1,4 @@
-namespace BlitzRelay
+namespace BlitzRelay.FishNet
 {
 	/// <summary>
 	/// A lightweight event describing a remote client's connect or disconnect.

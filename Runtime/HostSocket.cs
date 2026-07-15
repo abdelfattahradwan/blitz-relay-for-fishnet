@@ -9,7 +9,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BlitzRelay
+namespace BlitzRelay.FishNet
 {
 	public sealed class HostSocket : SocketBase
 	{

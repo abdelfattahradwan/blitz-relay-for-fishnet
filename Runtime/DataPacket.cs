@@ -1,7 +1,7 @@
 using System;
 using System.Buffers;
 
-namespace BlitzRelay
+namespace BlitzRelay.FishNet
 {
 	/// <summary>
 	/// Immutable game-data packet with optional pooled backing buffer. Implements

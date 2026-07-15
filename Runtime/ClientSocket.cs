@@ -6,7 +6,7 @@ using System;
 using System.Buffers;
 using System.Threading.Tasks;
 
-namespace BlitzRelay
+namespace BlitzRelay.FishNet
 {
 	public sealed class ClientSocket : SocketBase
 	{
