@@ -2,7 +2,7 @@
 	"name": "com.winterboltgames.blitzrelayforfishnet",
 	"version": "1.2.1",
 	"displayName": "Blitz Relay for Fish-Networking",
-	"description": "",
+	"description": "A Blitz Relay transport for Fish-Networking.",
 	"unity": "2022.3",
 	"author": {
 		"name": "Winterbolt Games",
