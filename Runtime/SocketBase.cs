@@ -184,7 +184,10 @@ namespace BlitzRelay.FishNet
 				packet.Dispose();
 			}
 
-			ConnectionStateChanges.Clear();
+			while (ConnectionStateChanges.TryDequeue(out _))
+			{
+				//  ConcurrentQueue<T>.Clear allocates.
+			}
 		}
 
 		/// <summary>

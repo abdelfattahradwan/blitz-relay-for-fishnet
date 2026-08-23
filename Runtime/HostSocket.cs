@@ -412,7 +412,10 @@ namespace BlitzRelay.FishNet
 		{
 			base.ClearQueues();
 
-			_remoteConnectionChanges.Clear();
+			while (_remoteConnectionChanges.TryDequeue(out _))
+			{
+				// //  ConcurrentQueue<T>.Clear allocates.
+			}
 		}
 	}
 }
