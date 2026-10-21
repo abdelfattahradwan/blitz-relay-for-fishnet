@@ -12,11 +12,6 @@ namespace BlitzRelay.FishNet
 	{
 		private bool _pendingPromotionDisconnect;
 
-		~ClientSocket()
-		{
-			StopConnection();
-		}
-
 		internal bool StartConnection(string relayAddress, ushort relayPort, string relayKey, string roomCode)
 		{
 			if (SocketConnectionState != LocalConnectionState.Stopped) StopSocket();

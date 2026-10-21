@@ -64,11 +64,6 @@ namespace BlitzRelay.FishNet
 
 		private bool _relayHostAvailable = true;
 
-		~BlitzRelayTransport()
-		{
-			Shutdown();
-		}
-
 		public override event Action<ClientConnectionStateArgs> OnClientConnectionState;
 
 		public override event Action<ServerConnectionStateArgs> OnServerConnectionState;

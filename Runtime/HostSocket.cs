@@ -23,11 +23,6 @@ namespace BlitzRelay.FishNet
 
 		private bool _claimExistingRoom;
 
-		~HostSocket()
-		{
-			StopConnection();
-		}
-
 		internal bool StartConnection(string relayAddress, ushort relayPort, string relayKey, int maximumClients, string claimToken = "", string roomCode = "")
 		{
 			if (SocketConnectionState != LocalConnectionState.Stopped) StopSocket();
