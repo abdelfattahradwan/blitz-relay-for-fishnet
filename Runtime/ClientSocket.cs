@@ -4,7 +4,6 @@ using FishNet.Managing;
 using FishNet.Transporting;
 using System;
 using System.Buffers;
-using System.Threading.Tasks;
 
 namespace BlitzRelay.FishNet
 {
@@ -34,9 +33,7 @@ namespace BlitzRelay.FishNet
 
 			ClearQueues();
 
-			_ = Task.Run(ConnectToRelay);
-
-			return true;
+			return ConnectToRelay();
 		}
 
 		internal bool StopConnection(DisconnectInfo? info = null)
@@ -163,7 +160,7 @@ namespace BlitzRelay.FishNet
 			if (SocketConnectionState == LocalConnectionState.Started) Send(OutgoingPackets, channelId, segment, -1, Mtu);
 		}
 
-		private void ConnectToRelay()
+		private bool ConnectToRelay()
 		{
 			EventBasedNetListener listener = new();
 
@@ -182,11 +179,16 @@ namespace BlitzRelay.FishNet
 				MtuOverride = Mtu,
 			};
 
-			ConnectionStateChanges.Enqueue(LocalConnectionState.Starting);
+			if (!SocketNetManager.Start())
+			{
+				StopSocket();
 
-			SocketNetManager.Start();
+				return false;
+			}
 
 			SocketNetManager.Connect(RelayAddress, RelayPort, RelayKey);
+
+			return true;
 		}
 
 		private void PeerConnectedEventHandler(NetPeer peer)

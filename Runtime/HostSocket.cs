@@ -7,7 +7,6 @@ using System;
 using System.Buffers;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace BlitzRelay.FishNet
 {
@@ -51,9 +50,7 @@ namespace BlitzRelay.FishNet
 
 			RelayPeer = null;
 
-			_ = Task.Run(ConnectToRelay);
-
-			return true;
+			return ConnectToRelay();
 		}
 
 		internal bool StopConnection()
@@ -249,7 +246,7 @@ namespace BlitzRelay.FishNet
 			_maximumClients = value;
 		}
 
-		private void ConnectToRelay()
+		private bool ConnectToRelay()
 		{
 			EventBasedNetListener listener = new();
 
@@ -268,9 +265,16 @@ namespace BlitzRelay.FishNet
 				MtuOverride = Mtu,
 			};
 
-			SocketNetManager.Start();
+			if (!SocketNetManager.Start())
+			{
+				StopSocket();
+
+				return false;
+			}
 
 			SocketNetManager.Connect(RelayAddress, RelayPort, RelayKey);
+
+			return true;
 		}
 
 		private void PeerConnectedEventHandler(NetPeer peer)
