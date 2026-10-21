@@ -71,7 +71,7 @@ Several methods are available for script-driven configuration after the transpor
 - `IsRelayHostAvailable` → Indicates whether the room currently has an available host.
 - `OnRelayHostAvailabilityChanged` → Event that fires when host availability changes (e.g. after a host migration).
 
-## License
+## Licence
 
 MIT License. See [LICENSE](LICENSE) for details.
 
