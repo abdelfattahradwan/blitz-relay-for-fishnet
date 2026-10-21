@@ -292,7 +292,14 @@ namespace BlitzRelay.FishNet
 
 			if (SocketConnectionState is LocalConnectionState.Stopping or LocalConnectionState.Stopped) return;
 
-			Transport.NetworkManager.Log($"Relay host connection lost. Reason: {disconnectInfo.Reason}.");
+			if (MessageCodec.TryReadError(disconnectInfo.AdditionalData.GetRemainingBytesSpan(), out ErrorCode errorCode))
+			{
+				Transport.NetworkManager.LogError($"Relay returned error code {errorCode}.");
+			}
+			else
+			{
+				Transport.NetworkManager.Log($"Relay host connection lost. Reason: {disconnectInfo.Reason}.");
+			}
 
 			ConnectionStateChanges.Enqueue(LocalConnectionState.Stopping);
 

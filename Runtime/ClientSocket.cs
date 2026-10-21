@@ -204,6 +204,15 @@ namespace BlitzRelay.FishNet
 		{
 			RelayPeer = null;
 
+			if (MessageCodec.TryReadError(disconnectInfo.AdditionalData.GetRemainingBytesSpan(), out ErrorCode errorCode))
+			{
+				Transport.NetworkManager.LogError($"Relay returned error code {errorCode}.");
+
+				StopConnection();
+
+				return;
+			}
+
 			StopConnection(disconnectInfo);
 		}
 
