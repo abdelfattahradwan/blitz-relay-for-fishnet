@@ -353,7 +353,7 @@ namespace BlitzRelay.FishNet
 					{
 						int virtualId = MessageCodec.ReadDisconnected(relayPayload);
 
-						_virtualClients.Remove(virtualId);
+						if (!_virtualClients.Remove(virtualId)) break;
 
 						RemoteConnectionChange remoteConnectionChange = new(virtualId, false);
 
