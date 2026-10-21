@@ -1,5 +1,4 @@
 ﻿using BlitzRelay.FishNet.LiteNetLib;
-using BlitzRelay.FishNet.LiteNetLib.Layers;
 using BlitzRelay.Protocol;
 using FishNet.Managing;
 using FishNet.Managing.Transporting;
@@ -43,8 +42,6 @@ namespace BlitzRelay.FishNet
 		private const ushort MaxTimeoutSeconds = 1800;
 
 		private const int MaximumUdpMtu = 1350;
-
-		private PacketLayerBase _packetLayer;
 
 		public readonly HostSocket ServerSocket = new();
 
@@ -303,19 +300,6 @@ namespace BlitzRelay.FishNet
 			return MaximumUdpMtu - NetConstants.MaxUdpHeaderSize - MessageCodec.MaxRelayHeaderSize;
 		}
 
-		public void SetPacketLayer(PacketLayerBase packetLayer)
-		{
-			_packetLayer = packetLayer;
-
-			if (GetConnectionState(true) != LocalConnectionState.Stopped) NetworkManager.LogWarning("PacketLayer is set but will not be applied until the server stops.");
-
-			if (GetConnectionState(false) != LocalConnectionState.Stopped) NetworkManager.LogWarning("PacketLayer is set but will not be applied until the client stops.");
-
-			InitializeSocket(true);
-
-			InitializeSocket(false);
-		}
-
 		public string GetRelayAddress()
 		{
 			return relayAddress;
@@ -398,11 +382,11 @@ namespace BlitzRelay.FishNet
 		{
 			if (forServer)
 			{
-				ServerSocket.Initialize(this, MaximumUdpMtu, _packetLayer);
+				ServerSocket.Initialize(this, MaximumUdpMtu);
 			}
 			else
 			{
-				ClientSocket.Initialize(this, MaximumUdpMtu, _packetLayer);
+				ClientSocket.Initialize(this, MaximumUdpMtu);
 			}
 		}
 

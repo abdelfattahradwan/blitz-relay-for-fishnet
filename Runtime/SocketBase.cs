@@ -1,5 +1,4 @@
 using BlitzRelay.FishNet.LiteNetLib;
-using BlitzRelay.FishNet.LiteNetLib.Layers;
 using FishNet.Transporting;
 using System;
 using System.Collections.Concurrent;
@@ -49,11 +48,6 @@ namespace BlitzRelay.FishNet
 		protected NetPeer RelayPeer;
 
 		/// <summary>
-		/// The packet layer used to encode and decode packets.
-		/// </summary>
-		protected PacketLayerBase PacketLayer;
-
-		/// <summary>
 		/// Queue of incoming packets.
 		/// </summary>
 		protected readonly ConcurrentQueue<DataPacket> IncomingPackets = new();
@@ -86,15 +80,13 @@ namespace BlitzRelay.FishNet
 		/// <summary>
 		/// Initialises the socket.
 		/// </summary>
-		internal void Initialize(Transport transport, int unreliableMtu, PacketLayerBase packetLayer)
+		internal void Initialize(Transport transport, int unreliableMtu)
 		{
 			if (transport is not BlitzRelayTransport blitzRelay) throw new ArgumentException("Transport must be Blitz Relay.", nameof(transport));
 
 			Transport = blitzRelay;
 
 			Mtu = unreliableMtu;
-
-			PacketLayer = packetLayer;
 		}
 
 		/// <summary>

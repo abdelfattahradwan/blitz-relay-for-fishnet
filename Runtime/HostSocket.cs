@@ -256,7 +256,7 @@ namespace BlitzRelay.FishNet
 
 			listener.NetworkReceiveEvent += NetworkReceiveEventHandler;
 
-			SocketNetManager = new NetManager(listener, PacketLayer)
+			SocketNetManager = new NetManager(listener)
 			{
 				DisconnectTimeout = DisconnectTimeoutMilliseconds,
 
