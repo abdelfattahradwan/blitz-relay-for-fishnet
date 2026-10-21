@@ -68,6 +68,11 @@ namespace BlitzRelay.FishNet
 		protected readonly ConcurrentQueue<LocalConnectionState> ConnectionStateChanges = new();
 
 		/// <summary>
+		/// True while <see cref="PollSocket"/> is dispatching LiteNetLib events.
+		/// </summary>
+		private bool _isPolling;
+
+		/// <summary>
 		/// The LiteNetLib NetManager instance. Null when the socket is stopped.
 		/// </summary>
 		public NetManager SocketNetManager { get; protected set; }
@@ -100,11 +105,27 @@ namespace BlitzRelay.FishNet
 		}
 
 		/// <summary>
-		/// Polls the LiteNetLib socket for events. Must be called every frame.
+		/// Polls the LiteNetLib socket for events. Must be called every frame. A socket stopped
+		/// by an event handler is stopped after polling completes.
 		/// </summary>
 		internal void PollSocket()
 		{
-			SocketNetManager?.PollEvents();
+			NetManager netManager = SocketNetManager;
+
+			if (netManager == null) return;
+
+			_isPolling = true;
+
+			try
+			{
+				netManager.PollEvents();
+			}
+			finally
+			{
+				_isPolling = false;
+			}
+
+			if (SocketNetManager != netManager) netManager.Stop();
 		}
 
 		/// <summary>
@@ -172,7 +193,7 @@ namespace BlitzRelay.FishNet
 		{
 			if (SocketNetManager == null) return;
 
-			SocketNetManager.Stop();
+			if (!_isPolling) SocketNetManager.Stop();
 
 			SocketNetManager = null;
 
