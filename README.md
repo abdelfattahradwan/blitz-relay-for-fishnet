@@ -12,19 +12,20 @@ connections to the relay.
 
 - Unity 2022.3 or later
 - [Fish-Networking](https://fish-networking.fishnet.dev/)
+- A [Blitz Relay](https://github.com/abdelfattahradwan/blitz-relay) server running v1.3.0 or later
 
 ## Installation
 
 Open the Unity Package Manager (Window > Package Manager) and add the package via git URL:
 
 ```
-https://github.com/abdelfattahradwan/blitz-relay-for-fishnet.git?path=/Packages/com.winterboltgames.blitzrelayforfishnet
+https://github.com/abdelfattahradwan/blitz-relay-for-fishnet.git
 ```
 
 Or add the following entry to your project's `Packages/manifest.json`:
 
 ```json
-"com.winterboltgames.blitz-relay-for-fishnet": "https://github.com/abdelfattahradwan/blitz-relay-for-fishnet.git?path=/Packages/com.winterboltgames.blitzrelayforfishnet"
+"com.winterboltgames.blitzrelayforfishnet": "https://github.com/abdelfattahradwan/blitz-relay-for-fishnet.git"
 ```
 
 ## Features
@@ -64,10 +65,10 @@ Several methods are available for script-driven configuration after the transpor
 - `SetRelayAddress(string)` / `GetRelayAddress()` → Change or read the relay server address.
 - `SetRelayPort(ushort)` / `GetRelayPort()` → Change or read the relay server port.
 - `SetRoomCode(string)` / `GetRoomCode()` → Set or retrieve the current room code.
-- `SetRoomHostToken(string)` / `GetRoomHostToken()` → Manage the host token assigned by the relay (used internally for
-  room ownership).
+- `SetRoomHostToken(string)` / `GetRoomHostToken()` → Manage the host token assigned by the relay, which can be used to
+  manage the room through the relay HTTP API.
 - `SetMaximumClients(int)` / `GetMaximumClients()` → Adjust or read the client limit.
-- `IsRelayHostAvailable` → Indicates whether the local player is, or can become, the relay host.
+- `IsRelayHostAvailable` → Indicates whether the room currently has an available host.
 - `OnRelayHostAvailabilityChanged` → Event that fires when host availability changes (e.g. after a host migration).
 
 ## License
