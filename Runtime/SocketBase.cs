@@ -108,23 +108,6 @@ namespace BlitzRelay.FishNet
 		}
 
 		/// <summary>
-		/// Attempts to retrieve the bound local port.
-		/// </summary>
-		/// <returns>
-		/// True if the socket is running and a port was retrieved.
-		/// </returns>
-		internal bool TryGetPort(out ushort port)
-		{
-			port = 0;
-
-			if (SocketNetManager is not { IsRunning: not true }) return false;
-
-			port = (ushort)Math.Clamp(SocketNetManager.LocalPort, 0, ushort.MaxValue);
-
-			return true;
-		}
-
-		/// <summary>
 		/// Updates the socket's connection state and notifies Fish-Networking.
 		/// </summary>
 		protected void SetConnectionState(LocalConnectionState newConnectionState, bool server)

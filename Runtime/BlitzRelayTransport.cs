@@ -262,9 +262,7 @@ namespace BlitzRelay.FishNet
 
 		public override ushort GetPort()
 		{
-			if (ServerSocket.TryGetPort(out ushort port)) return port;
-
-			return ClientSocket.TryGetPort(out port) ? port : relayPort;
+			return relayPort;
 		}
 
 		public override bool StartConnection(bool server)
