@@ -214,6 +214,8 @@ namespace BlitzRelay.FishNet
 
 				outgoingDataPacket.Dispose();
 			}
+
+			if (count > 0) RelayPeer.NetManager.TriggerUpdate();
 		}
 
 		internal void SendToClient(byte channelId, ArraySegment<byte> segment, int connectionId)
