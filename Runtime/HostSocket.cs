@@ -292,20 +292,22 @@ namespace BlitzRelay.FishNet
 
 			if (SocketConnectionState is LocalConnectionState.Stopping or LocalConnectionState.Stopped) return;
 
+			bool hostRemoved = false;
+
 			if (MessageCodec.TryReadError(disconnectInfo.AdditionalData.GetRemainingBytesSpan(), out ErrorCode errorCode))
 			{
 				Transport.NetworkManager.LogError($"Relay returned error code {errorCode}.");
 
-				if (errorCode == ErrorCode.HostRemoved) Transport.HandleHostRemoved();
+				hostRemoved = errorCode == ErrorCode.HostRemoved;
 			}
 			else
 			{
 				Transport.NetworkManager.Log($"Relay host connection lost. Reason: {disconnectInfo.Reason}.");
 			}
 
-			ConnectionStateChanges.Enqueue(LocalConnectionState.Stopping);
+			StopConnection();
 
-			ConnectionStateChanges.Enqueue(LocalConnectionState.Stopped);
+			if (hostRemoved) Transport.HandleHostRemoved();
 		}
 
 		private void NetworkReceiveEventHandler(NetPeer fromPeer, NetPacketReader reader, byte channel, DeliveryMethod deliveryMethod)
