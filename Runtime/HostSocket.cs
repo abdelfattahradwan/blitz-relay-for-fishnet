@@ -295,6 +295,8 @@ namespace BlitzRelay.FishNet
 			if (MessageCodec.TryReadError(disconnectInfo.AdditionalData.GetRemainingBytesSpan(), out ErrorCode errorCode))
 			{
 				Transport.NetworkManager.LogError($"Relay returned error code {errorCode}.");
+
+				if (errorCode == ErrorCode.HostRemoved) Transport.HandleHostRemoved();
 			}
 			else
 			{

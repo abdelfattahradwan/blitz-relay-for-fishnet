@@ -353,6 +353,13 @@ namespace BlitzRelay.FishNet
 			HandleRelayHostAvailability(false);
 		}
 
+		internal void HandleHostRemoved()
+		{
+			ClearPendingHostPromotion();
+
+			StopClient();
+		}
+
 		internal void HandleRelayHostAvailability(bool isAvailable)
 		{
 			if (_relayHostAvailable == isAvailable) return;
