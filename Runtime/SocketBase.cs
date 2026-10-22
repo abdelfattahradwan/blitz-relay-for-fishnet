@@ -123,9 +123,9 @@ namespace BlitzRelay.FishNet
 			finally
 			{
 				_isPolling = false;
-			}
 
-			if (SocketNetManager != netManager) netManager.Stop();
+				if (SocketNetManager != netManager) netManager.Stop();
+			}
 		}
 
 		/// <summary>

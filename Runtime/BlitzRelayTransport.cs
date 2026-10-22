@@ -373,7 +373,14 @@ namespace BlitzRelay.FishNet
 
 			_relayHostAvailable = isAvailable;
 
-			OnRelayHostAvailabilityChanged?.Invoke(isAvailable);
+			try
+			{
+				OnRelayHostAvailabilityChanged?.Invoke(isAvailable);
+			}
+			catch (Exception exception)
+			{
+				Debug.LogException(exception);
+			}
 		}
 
 		private void OnDestroy()
