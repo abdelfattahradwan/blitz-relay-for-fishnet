@@ -59,7 +59,7 @@ namespace BlitzRelay.FishNet
 
 		private int _pendingPromotedMaximumClients;
 
-		private bool _relayHostAvailable = true;
+		private bool _relayHostAvailable;
 
 		public override event Action<ClientConnectionStateArgs> OnClientConnectionState;
 
