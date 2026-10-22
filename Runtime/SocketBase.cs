@@ -13,7 +13,7 @@ namespace BlitzRelay.FishNet
 	public abstract class SocketBase
 	{
 		/// <summary>
-		/// The address and port of the relay server.
+		/// The address of the relay server.
 		/// </summary>
 		protected string RelayAddress;
 
@@ -155,7 +155,7 @@ namespace BlitzRelay.FishNet
 		/// Enqueues a packet for delivery. Silently ignored if the socket is not in the
 		/// Started state.
 		/// </summary>
-		protected void Send(Queue<DataPacket> queue, byte channelId, ArraySegment<byte> segment, int connectionId, int mtu)
+		protected void Send(Queue<DataPacket> queue, byte channelId, ArraySegment<byte> segment, int connectionId)
 		{
 			if (SocketConnectionState != LocalConnectionState.Started) return;
 

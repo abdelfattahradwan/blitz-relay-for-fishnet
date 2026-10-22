@@ -338,9 +338,9 @@ namespace BlitzRelay.FishNet
 			_roomHostToken = newRoomHostToken;
 		}
 
-		internal void HandleClientHostPromoted(string roomCode, int promotedMaximumClients, string claimToken)
+		internal void HandleClientHostPromoted(string promotedRoomCode, int promotedMaximumClients, string claimToken)
 		{
-			this.roomCode = roomCode;
+			roomCode = promotedRoomCode;
 
 			maximumClients = promotedMaximumClients;
 

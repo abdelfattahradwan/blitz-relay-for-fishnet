@@ -16,7 +16,7 @@ namespace BlitzRelay.FishNet
 		public readonly bool IsConnected;
 
 		/// <summary>
-		/// Creates a RemoteConnectionEvent with the given connection ID and connection
+		/// Creates a RemoteConnectionChange with the given connection ID and connection
 		/// state.
 		/// </summary>
 		public RemoteConnectionChange(int connectionId, bool isConnected)

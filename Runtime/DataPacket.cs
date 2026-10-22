@@ -25,7 +25,7 @@ namespace BlitzRelay.FishNet
 		private readonly byte[] _data;
 
 		/// <summary>
-		/// Number of bytes in use. Maybe less than the backing array length.
+		/// Number of bytes in use. May be less than the backing array length.
 		/// </summary>
 		private readonly int _length;
 

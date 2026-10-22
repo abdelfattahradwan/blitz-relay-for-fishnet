@@ -212,7 +212,7 @@ namespace BlitzRelay.FishNet
 
 		internal void SendToClient(byte channelId, ArraySegment<byte> segment, int connectionId)
 		{
-			Send(OutgoingPackets, channelId, segment, connectionId, Mtu);
+			Send(OutgoingPackets, channelId, segment, connectionId);
 		}
 
 		internal RemoteConnectionState GetConnectionState(int connectionId)
@@ -428,7 +428,7 @@ namespace BlitzRelay.FishNet
 
 			while (_remoteConnectionChanges.TryDequeue(out _))
 			{
-				// //  ConcurrentQueue<T>.Clear allocates.
+				//  ConcurrentQueue<T>.Clear allocates.
 			}
 		}
 	}

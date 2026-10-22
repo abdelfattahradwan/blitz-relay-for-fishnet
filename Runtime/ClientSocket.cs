@@ -157,7 +157,7 @@ namespace BlitzRelay.FishNet
 
 		internal void SendToServer(byte channelId, ArraySegment<byte> segment)
 		{
-			if (SocketConnectionState == LocalConnectionState.Started) Send(OutgoingPackets, channelId, segment, -1, Mtu);
+			if (SocketConnectionState == LocalConnectionState.Started) Send(OutgoingPackets, channelId, segment, -1);
 		}
 
 		private bool ConnectToRelay()
