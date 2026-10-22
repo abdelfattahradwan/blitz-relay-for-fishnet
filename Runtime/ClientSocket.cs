@@ -249,6 +249,13 @@ namespace BlitzRelay.FishNet
 
 						if (!ReferenceEquals(RelayPeer, fromPeer)) break;
 
+						if (Transport.ServerSocket.SocketConnectionState != LocalConnectionState.Stopped)
+						{
+							StopConnection();
+
+							break;
+						}
+
 						Transport.HandleClientHostPromoted(roomCode, maximumClients, claimToken);
 
 						_pendingPromotionDisconnect = true;
