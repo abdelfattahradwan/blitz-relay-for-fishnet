@@ -1,9 +1,9 @@
 # Blitz Relay for Fish-Networking
 
-A relay transport for [Fish-Networking](https://fish-networking.fishnet.dev/) that routes
-all client traffic through a [Blitz Relay](https://github.com/abdelfattahradwan/blitz-relay) server instance, removing
-the need for clients to have publicly reachable IP addresses or open ports. This makes it suitable for deployments where
-NAT traversal or firewall restrictions make direct peer-to-peer connections unreliable or impractical.
+A relay transport for [Fish-Networking](https://fish-networking.fishnet.dev/) that routes all client traffic through a
+[Blitz Relay](https://github.com/abdelfattahradwan/blitz-relay) server instance, removing the need for clients to have
+publicly reachable IP addresses or open ports. This makes it suitable for deployments where NAT traversal or firewall
+restrictions make direct peer-to-peer connections unreliable or impractical.
 
 The transport uses a modified build of [LiteNetLib](https://github.com/RevenantX/LiteNetLib) internally for its UDP
 connections to the relay.
@@ -12,7 +12,7 @@ connections to the relay.
 
 - Unity 2022.3 or later
 - [Fish-Networking](https://fish-networking.fishnet.dev/)
-- A [Blitz Relay](https://github.com/abdelfattahradwan/blitz-relay) server running v1.3.0 or later
+- A [Blitz Relay](https://github.com/abdelfattahradwan/blitz-relay) server running v1.3.1 or later
 
 ## Installation
 
@@ -32,10 +32,9 @@ Or add the following entry to your project's `Packages/manifest.json`:
 
 - **Relay-based architecture**: All game traffic flows through a relay server, so clients never need to expose their
   IP addresses or open firewall ports.
-- **Room-based**: Hosts create rooms and receive a room code from the relay; clients join by supplying
-  that room code.
-- **Basic Host migration**: When the current host disconnects, the relay can promote an existing client to become the
-  new host.
+- **Room-based**: Hosts create rooms and receive a room code from the relay; clients join by supplying that room code.
+- **Basic host migration**: When the host of a persistent room disconnects, the relay promotes an existing client to
+  become the new host. See [Host Migration](#host-migration).
 - **Host removal**: When the relay removes the host through its HTTP API (Blitz Relay v1.4.0 or later), the transport
   stops hosting and also stops its local client, so the relay promotes another client instead of the same instance.
 
@@ -69,9 +68,20 @@ Several methods are available for script-driven configuration after the transpor
 - `SetRoomCode(string)` / `GetRoomCode()` → Set or retrieve the current room code.
 - `SetRoomHostToken(string)` / `GetRoomHostToken()` → Manage the host token assigned by the relay, which can be used to
   manage the room through the relay HTTP API.
-- `SetMaximumClients(int)` / `GetMaximumClients()` → Adjust or read the client limit.
+- `SetMaximumClients(int)` / `GetMaximumClients()` → Adjust or read the client limit. While hosting, a change applies
+  to the transport only; the relay keeps the room's original limit.
 - `IsRelayHostAvailable` → Indicates whether the room currently has an available host.
 - `OnRelayHostAvailabilityChanged` → Event that fires when host availability changes (e.g. after a host migration).
+
+## Host Migration
+
+Host migration only happens in persistent rooms, which are created through the relay's HTTP API. When the host of a
+persistent room disconnects, the relay promotes the longest-connected client:
+
+- The promoted client's transport takes over the room by itself: its client connection stops, then it starts hosting the
+  room and reconnects its local client.
+- The other clients stay in the room, but their Fish-Networking session still holds the previous host's state. When
+  `OnRelayHostAvailabilityChanged(true)` fires, stop the client connection and start it again to join the new host.
 
 ## Licence
 
