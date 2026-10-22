@@ -355,9 +355,16 @@ namespace BlitzRelay.FishNet
 
 		internal void HandleHostRemoved()
 		{
-			ClearPendingHostPromotion();
-
 			StopClient();
+		}
+
+		internal void ClearPendingHostPromotion()
+		{
+			_pendingPromotedServerStart = false;
+
+			_pendingPromotedClaimToken = string.Empty;
+
+			_pendingPromotedMaximumClients = 0;
 		}
 
 		internal void HandleRelayHostAvailability(bool isAvailable)
@@ -442,6 +449,8 @@ namespace BlitzRelay.FishNet
 		{
 			_pendingClientStart = false;
 
+			ClearPendingHostPromotion();
+
 			return ClientSocket?.StopConnection() ?? false;
 		}
 
@@ -458,15 +467,6 @@ namespace BlitzRelay.FishNet
 			_pendingClientStart = false;
 
 			ClearPendingHostPromotion();
-		}
-
-		private void ClearPendingHostPromotion()
-		{
-			_pendingPromotedServerStart = false;
-
-			_pendingPromotedClaimToken = string.Empty;
-
-			_pendingPromotedMaximumClients = 0;
 		}
 
 		private void UpdateTimeout()

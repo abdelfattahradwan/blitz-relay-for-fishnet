@@ -208,6 +208,8 @@ namespace BlitzRelay.FishNet
 			{
 				Transport.NetworkManager.LogError($"Relay returned error code {errorCode}.");
 
+				Transport.ClearPendingHostPromotion();
+
 				StopConnection();
 
 				return;
@@ -244,6 +246,8 @@ namespace BlitzRelay.FishNet
 						MessageCodec.ReadHostPromoted(relayPayload, out string roomCode, out int maximumClients, out string claimToken);
 
 						Transport.HandleRelayHostAvailability(false);
+
+						if (!ReferenceEquals(RelayPeer, fromPeer)) break;
 
 						Transport.HandleClientHostPromoted(roomCode, maximumClients, claimToken);
 
@@ -287,6 +291,8 @@ namespace BlitzRelay.FishNet
 					{
 						_pendingPromotionDisconnect = false;
 
+						Transport.ClearPendingHostPromotion();
+
 						StopConnection();
 
 						break;
@@ -297,6 +303,8 @@ namespace BlitzRelay.FishNet
 						ErrorCode errorCode = MessageCodec.ReadError(relayPayload);
 
 						_pendingPromotionDisconnect = false;
+
+						Transport.ClearPendingHostPromotion();
 
 						Transport.NetworkManager.LogError($"Relay returned error code {errorCode}.");
 
