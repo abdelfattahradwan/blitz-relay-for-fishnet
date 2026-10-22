@@ -206,7 +206,7 @@ namespace BlitzRelay.FishNet
 
 			if (MessageCodec.TryReadError(disconnectInfo.AdditionalData.GetRemainingBytesSpan(), out ErrorCode errorCode))
 			{
-				Transport.NetworkManager.LogError($"Relay returned error code {errorCode}.");
+				Transport.NetworkManager.LogWarning($"Relay returned error code {errorCode}.");
 
 				Transport.ClearPendingHostPromotion();
 
