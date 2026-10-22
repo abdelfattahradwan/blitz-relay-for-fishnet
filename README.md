@@ -36,6 +36,8 @@ Or add the following entry to your project's `Packages/manifest.json`:
   that room code.
 - **Basic Host migration**: When the current host disconnects, the relay can promote an existing client to become the
   new host.
+- **Host removal**: When the relay removes the host through its HTTP API (Blitz Relay v1.4.0 or later), the transport
+  stops hosting and also stops its local client, so the relay promotes another client instead of the same instance.
 
 ## Setup
 
