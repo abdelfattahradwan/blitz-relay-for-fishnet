@@ -334,6 +334,8 @@ namespace BlitzRelay.FishNet
 
 						Transport.HandleRelayHostAvailability(true);
 
+						if (!ReferenceEquals(RelayPeer, fromPeer)) break;
+
 						ConnectionStateChanges.Enqueue(LocalConnectionState.Started);
 
 						break;
