@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
-      "BlitzRelay.Protocol/1.0.0": {
+      "BlitzRelay.Protocol/1.4.0": {
         "dependencies": {
           "JetBrains.Annotations": "2026.2.0"
         },
@@ -26,7 +26,7 @@
     }
   },
   "libraries": {
-    "BlitzRelay.Protocol/1.0.0": {
+    "BlitzRelay.Protocol/1.4.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
